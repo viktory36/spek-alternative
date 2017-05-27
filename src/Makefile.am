@@ -20,6 +20,7 @@ libspek_a_CPPFLAGS = \
 libspek_a_CXXFLAGS = \
 	$(AVFORMAT_CFLAGS) \
 	$(AVCODEC_CFLAGS) \
+	$(SWRSAMPLE_CLFAGS) \
 	$(AVUTIL_CFLAGS) \
 	$(WX_CXXFLAGS_ONLY)
 
@@ -56,6 +57,7 @@ spek_LDADD = \
 	libspek.a \
 	$(AVFORMAT_LIBS) \
 	$(AVCODEC_LIBS) \
+	$(SWRESAMPLE_LIBS) \
 	$(AVUTIL_LIBS) \
 	$(WX_LIBS)
 

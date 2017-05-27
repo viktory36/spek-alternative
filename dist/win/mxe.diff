@@ -1,6 +1,8 @@
---- "mxe/src/ffmpeg.mk"
-+++ "mxe-spek/src/ffmpeg.mk"
-@@ -9,9 +9,7 @@
+diff --git a/src/ffmpeg.mk b/src/ffmpeg.mk
+index 74f3930..6b78173 100644
+--- a/src/ffmpeg.mk
++++ b/src/ffmpeg.mk
+@@ -9,9 +9,7 @@ $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
  $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.bz2
  $(PKG)_URL      := https://ffmpeg.org/releases/$($(PKG)_FILE)
  $(PKG)_URL_2    := https://launchpad.net/ffmpeg/$(call SHORT_PKG_VERSION,$(PKG))/$($(PKG)_VERSION)/+download/$($(PKG)_FILE)
@@ -11,7 +13,7 @@
  
  # DO NOT ADD fdk-aac OR openssl SUPPORT.
  # Although they are free softwares, their licenses are not compatible with
-@@ -39,31 +37,24 @@
+@@ -39,31 +37,22 @@ define $(PKG)_BUILD
          --yasmexe='$(TARGET)-yasm' \
          --disable-debug \
          --enable-memalign-hack \
@@ -20,8 +22,8 @@
 +        --enable-pthreads \
 +        --disable-w32threads \
          --disable-doc \
+-        --enable-avresample \
 +        --disable-programs \
-         --enable-avresample \
          --enable-gpl \
          --enable-version3 \
          --extra-libs='-mconsole' \
@@ -44,7 +46,6 @@
 -        --enable-libx264 \
 -        --enable-libxvid
 +        --disable-avdevice \
-+        --disable-swresample \
 +        --disable-swscale \
 +        --disable-postproc \
 +        --disable-avfilter \
@@ -55,10 +56,11 @@
      $(MAKE) -C '$(1)' -j '$(JOBS)'
      $(MAKE) -C '$(1)' -j 1 install
  endef
-
---- "mxe/src/wxwidgets.mk"
-+++ "mxe-spek/src/wxwidgets.mk"
-@@ -9,7 +9,7 @@
+diff --git a/src/wxwidgets.mk b/src/wxwidgets.mk
+index d8fd916..ec4f90f 100644
+--- a/src/wxwidgets.mk
++++ b/src/wxwidgets.mk
+@@ -9,7 +9,7 @@ $(PKG)_CHECKSUM := 346879dc554f3ab8d6da2704f651ecb504a22e9d31c17ef5449b129ed7115
  $(PKG)_SUBDIR   := wxWidgets-$($(PKG)_VERSION)
  $(PKG)_FILE     := wxWidgets-$($(PKG)_VERSION).tar.bz2
  $(PKG)_URL      := https://$(SOURCEFORGE_MIRROR)/project/wxwindows/$($(PKG)_VERSION)/$($(PKG)_FILE)
@@ -67,7 +69,7 @@
  
  define $(PKG)_UPDATE
      $(WGET) -q -O- 'https://sourceforge.net/projects/wxwindows/files/' | \
-@@ -35,7 +35,6 @@
+@@ -35,7 +35,6 @@ define $(PKG)_CONFIGURE_OPTS
          --with-regex=yes \
          --with-zlib=sys \
          --with-expat=sys \
