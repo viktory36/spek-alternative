@@ -22,10 +22,10 @@ END_EVENT_TABLE()
 
 enum
 {
-    MIN_RANGE = -140,
+    MIN_RANGE = -320,
     MAX_RANGE = 0,
     URANGE = 0,
-    LRANGE = -120,
+    LRANGE = -144,
     FFT_BITS = 11,
     MIN_FFT_BITS = 8,
     MAX_FFT_BITS = 14,
