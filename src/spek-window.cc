@@ -89,28 +89,6 @@ SpekWindow::SpekWindow(int width, int height, const wxString& path, const wxStri
 
     SetMenuBar(menu);
 
-    wxToolBar *toolbar = CreateToolBar();
-    toolbar->AddTool(
-        wxID_OPEN,
-        wxEmptyString,
-        wxArtProvider::GetBitmap(ART_OPEN, wxART_TOOLBAR),
-        menu_file_open->GetItemLabelText()
-    );
-    toolbar->AddTool(
-        wxID_SAVE,
-        wxEmptyString,
-        wxArtProvider::GetBitmap(ART_SAVE, wxART_TOOLBAR),
-        menu_file_save->GetItemLabelText()
-    );
-    toolbar->AddStretchableSpace();
-    toolbar->AddTool(
-        wxID_HELP,
-        wxEmptyString,
-        wxArtProvider::GetBitmap(ART_HELP, wxART_TOOLBAR),
-        _("Help")
-    );
-    toolbar->Realize();
-
     wxSizer *sizer = new wxBoxSizer(wxVERTICAL);
 
     // wxInfoBar is too limited, construct a custom one.
