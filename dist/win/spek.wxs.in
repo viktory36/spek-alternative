@@ -6,7 +6,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <Product Id="*" Name="$(var.ProductName)" Language="0"
            Version="$(var.ProductVersion)" Manufacturer="$(var.Manufacturer)" UpgradeCode="$(var.UpgradeCode)">
-    <Package InstallerVersion="301" Compressed="yes" Platform="x86" InstallScope="perMachine"/>
+    <Package InstallerVersion="301" Compressed="yes" Platform="x86" Manufacturer="$(var.Manufacturer)" InstallScope="perMachine"/>
     <Media Id="1" Cabinet="spek.cab" EmbedCab="yes" CompressionLevel="high" />
     <Property Id="ARPPRODUCTICON" Value="ProgramIcon" />
     <Property Id="ARPHELPLINK" Value="https://github.com/withmorten/spek/blob/release/$(var.ProductVersion)/README.md" />
@@ -42,7 +42,6 @@
         <RegistryValue Root="HKCU" Key="Software\$(var.Manufacturer)\$(var.ProductName)" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
     </DirectoryRef>
-
     <Directory Id="TARGETDIR" Name="SourceDir">
       <Directory Id="ProgramMenuFolder">
         <Directory Id="ProgramMenuSubfolder" Name="$(var.ProductName)"/>
@@ -57,6 +56,7 @@
             <RegistryValue Root="HKLM" Key="SOFTWARE\Spek\Capabilities" Name="ApplicationDescription" Value="Acoustic Spectrum Analyser" Type="string" />
             <RegistryValue Root="HKLM" Key="SOFTWARE\Spek\Capabilities" Name="ApplicationIcon" Value="[#spek.ico]" Type="string" />
             <RegistryValue Root="HKLM" Key="SOFTWARE\Spek\Capabilities" Name="ApplicationName" Value="Spek" Type="string" />
+            <RegistryValue Root="HKLM" Key="SOFTWARE\Spek\Capabilities" Name="ApplicationCompany" Value="Spek Project" Type="string" />
             <RegistryValue Root="HKLM" Key="SOFTWARE\Spek\Capabilities\DefaultIcon" Value="[#spek.ico]" Type="string" />
             <RegistryValue Root="HKLM" Key="SOFTWARE\Spek\Capabilities\shell\open\command" Value="&quot;[INSTALLLOCATION]spek.exe&quot; &quot;%1&quot;" Type="string" />
             <RegistryValue Root="HKLM" Key="SOFTWARE\RegisteredApplications" Name="Spek" Value="SOFTWARE\Spek\Capabilities" Type="string" />
@@ -66,6 +66,7 @@
             <!-- Extend to the "open with" list + Win7 jump menu pinning  -->
             <RegistryValue Root="HKLM" Key="SOFTWARE\Classes\Applications\spek.exe" Value="Acoustic Spectrum Analyser" Type="string" />
             <RegistryValue Root="HKLM" Key="SOFTWARE\Classes\Applications\spek.exe" Name="FriendlyAppName" Value="Spek" Type="string" />
+            <RegistryValue Root="HKLM" Key="SOFTWARE\Classes\Applications\spek.exe" Name="ApplicationCompany" Value="Spek Audio" Type="string" />
             <RegistryValue Root="HKLM" Key="SOFTWARE\Classes\Applications\spek.exe\DefaultIcon" Value="[#spek.ico]" Type="string" />
             <RegistryValue Root="HKLM" Key="SOFTWARE\Classes\Applications\spek.exe\shell\open\command" Value="&quot;[INSTALLLOCATION]spek.exe&quot; &quot;%1&quot;" Type="string" />
             <!-- Spek.Audio class -->
@@ -93,4 +94,3 @@
     </Feature>
   </Product>
 </Wix>
-
