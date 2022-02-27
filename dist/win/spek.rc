@@ -3,3 +3,22 @@ help ICON "help.ico"
 open ICON "open.ico"
 save ICON "save.ico"
 close ICON "close.ico"
+
+1 VERSIONINFO
+FILEVERSION 0,8,2,3
+PRODUCTVERSION 0,8,2,3
+{
+BLOCK "StringFileInfo"
+{
+	BLOCK "040904b0"
+	{
+		VALUE "CompanyName", "Spek Project"
+		VALUE "FileDescription", "Spek Alternative"
+		VALUE "FileVersion", "0.8.2.3"
+		VALUE "InternalName", "spek alt"
+		VALUE "OriginalFilename", "spek.exe"
+		VALUE "ProductName", "Spek"
+		VALUE "ProductVersion", "0.8.2.3"
+	}
+}
+}
