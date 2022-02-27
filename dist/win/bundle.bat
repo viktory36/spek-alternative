@@ -1,7 +1,7 @@
 rem This script will build an MSI installer for Win32.
 rem Check README.md in this directory for instructions.
 
-set WIX_PATH="C:\Program Files (x86)\Windows Installer XML v3.5\bin"
+set WIX_PATH="C:\Program Files (x86)\WiX Toolset v3.11\bin"
 
 rem Generate a wxs for files in Spek
 del spek.msi
